@@ -20,8 +20,8 @@ public class StudyConllection {
     public void test1(){
         TreeMap<String,String> map = new TreeMap<String, String>();
 
-        map.put("a","a");
         map.put("b","b");
+        map.put("a","a");
         map.put("c","c");
 
         SortedMap<String, String> stringStringSortedMap = map.subMap("a", "c");
