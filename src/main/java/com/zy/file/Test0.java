@@ -1,5 +1,6 @@
 package com.zy.file;
 
+import com.zy.file.utils.FileUtil;
 import org.junit.Test;
 
 import java.io.File;
@@ -23,5 +24,11 @@ public class Test0 {
         String path = "E:/a/b/c.txt";
         File file = new File(path);
         file.createNewFile();
+    }
+
+    @Test
+    public void test3() throws IOException {
+        String path = "E:/a/b/c.txt";
+        FileUtil.createFile(path);
     }
 }
