@@ -10,7 +10,7 @@ public class App {
         System.out.println("int");
     }
 
-    public static void f1(short s){
-        System.out.println("short");
-    }
+//    public static void f1(long s){
+//        System.out.println("long");
+//    }
 }

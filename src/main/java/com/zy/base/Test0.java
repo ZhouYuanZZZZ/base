@@ -6,7 +6,7 @@ public class Test0 {
 
     @Test
     public void test0(){
-        int s = 5;
-        App.f1(6);
+        long s = 5;
+        App.f1(s);
     }
 }
