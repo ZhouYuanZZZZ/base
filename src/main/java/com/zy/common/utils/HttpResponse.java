@@ -5,6 +5,15 @@ public class HttpResponse {
     private boolean resultFlag;
     private String resultData;
     private String errorMessage;
+    private int httpResponseCode;
+
+    public int getHttpResponseCode() {
+        return httpResponseCode;
+    }
+
+    public void setHttpResponseCode(int httpResponseCode) {
+        this.httpResponseCode = httpResponseCode;
+    }
 
     public boolean isResultFlag() {
         return resultFlag;
