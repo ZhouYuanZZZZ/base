@@ -143,6 +143,6 @@ public class MD5 extends Object {
     };
 
     public static void main(String[] args) {
-        System.out.println(MD5.login("abd alftah", "123456"));// dc136552e4921a002a9f9e8f2fab9b9f
+        System.out.println(MD5.login("huawei", "123456"));// dc136552e4921a002a9f9e8f2fab9b9f
     }
 }
