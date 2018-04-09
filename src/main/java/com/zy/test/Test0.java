@@ -32,4 +32,17 @@ public class Test0 {
             System.out.println("----------------");
         }
     }
+
+    @Test
+    public void test2(){
+        int total = 15789;
+        int num=(int)(Math.random()*2000);
+        List<Integer> list = new ArrayList<>();
+        for(int i=0;i<30;i++){
+            total = total+num;
+            list.add(total);
+        }
+
+        System.out.println(list);
+    }
 }
