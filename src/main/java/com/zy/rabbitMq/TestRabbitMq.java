@@ -1,0 +1,46 @@
+package com.zy.rabbitMq;
+
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
+public class TestRabbitMq {
+
+    private ConnectionFactory factory;
+    private Connection connection;
+    private Channel channel;
+
+    @Before
+    public void setUp() throws IOException, TimeoutException {
+         factory = new ConnectionFactory();
+         factory.setHost("192.168.1.142");
+         factory.setPort(5672);
+         factory.setUsername("zy");
+         factory.setPassword("zy");
+         connection = factory.newConnection();
+         channel = connection.createChannel();
+    }
+
+    @After
+    public void close() throws IOException, TimeoutException {
+       // connection.close();
+       // channel.close();
+    }
+
+    @Test
+    public void test0() throws IOException, InterruptedException {
+        channel.queueDeclare("Q1", false, false, false, null);
+        String message = "zzzzzzzzzzz";
+        Thread.sleep(2000);
+        for (int i = 0; i <10 ; i++) {
+            channel.basicPublish("","Q1", null, message.getBytes());
+        }
+        System.out.println(" [x] Sent '" + message + "'");
+    }
+}
