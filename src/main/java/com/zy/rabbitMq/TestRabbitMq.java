@@ -51,10 +51,10 @@ public class TestRabbitMq {
     @Test
     public void test1() throws IOException, TimeoutException {
         String message = "zzzz";
-        channel.exchangeDeclare("EX1", "fanout");
+        channel.exchangeDeclare("bootEx1", "direct",true,false,null);
 
         for (int i = 0; i <10 ; i++) {
-            channel.basicPublish("EX1", "", null, message.getBytes());
+            channel.basicPublish("bootEx1", "routingKey1", null, message.getBytes());
         }
 
         System.out.println("ok");
