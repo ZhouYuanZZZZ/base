@@ -19,20 +19,15 @@ public class TestCompareAndSwap {
 				}
 			}).start();
 		}
-		
 	}
-	
 }
-
 class CompareAndSwap{
 	private int value;
-	
 	//获取内存值
 	public synchronized int get(){
 		return value;
 	}
-	
-	//比较
+	//比较 原子性操作
 	public synchronized int compareAndSwap(int expectedValue, int newValue){
 		int oldValue = value;
 		
@@ -42,9 +37,8 @@ class CompareAndSwap{
 		
 		return oldValue;
 	}
-	
 	//设置
-	public synchronized boolean compareAndSet(int expectedValue, int newValue){
+	public  boolean compareAndSet(int expectedValue, int newValue){
 		return expectedValue == compareAndSwap(expectedValue, newValue);
 	}
 }
