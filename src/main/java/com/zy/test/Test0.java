@@ -85,4 +85,14 @@ public class Test0 {
         System.out.println(entity0.equals(entity1));
         System.out.println(entity1.equals(entity0));
     }
+
+    @Test
+    public void test8(){
+        String s = "9";
+        String[] split = s.split(",");
+        for(String item:split){
+            System.out.println(item);
+        }
+
+    }
 }
