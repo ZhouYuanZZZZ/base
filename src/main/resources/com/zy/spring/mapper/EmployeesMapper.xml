@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.spring.mapper.EmployeesMapper">
+  <resultMap id="BaseResultMap" type="com.zy.spring.entity.Employees">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="EMPLOYEE_ID" jdbcType="DECIMAL" property="employeeId" />
+    <result column="FIRST_NAME" jdbcType="VARCHAR" property="firstName" />
+    <result column="LAST_NAME" jdbcType="VARCHAR" property="lastName" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="HIRE_DATE" jdbcType="DATE" property="hireDate" />
+    <result column="JOB_ID" jdbcType="VARCHAR" property="jobId" />
+    <result column="SALARY" jdbcType="DECIMAL" property="salary" />
+    <result column="COMMISSION_PCT" jdbcType="DECIMAL" property="commissionPct" />
+    <result column="MANAGER_ID" jdbcType="DECIMAL" property="managerId" />
+    <result column="DEPARTMENT_ID" jdbcType="DECIMAL" property="departmentId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY, 
+    COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID
+  </sql>
+</mapper>
