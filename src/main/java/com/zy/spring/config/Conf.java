@@ -11,7 +11,6 @@ import org.springframework.core.env.Environment;
 import javax.sql.DataSource;
 
 @Configuration
-@Import(value = {Odm.class})
 public class Conf  {
 
 
