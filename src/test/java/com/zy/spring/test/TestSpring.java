@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.zy.spring.App;
 import com.zy.spring.entity.Employees;
 import com.zy.spring.mapper.EmployeesMapper;
+import com.zy.spring.services.EmployeesServices;
 import com.zy.spring.utils.TransactionUtils;
 import org.junit.Test;
 import org.junit.internal.runners.model.EachTestNotifier;
@@ -31,25 +32,28 @@ public class TestSpring {
     @Resource
     private TransactionUtils transactionUtils;
 
+    @Resource
+    private EmployeesServices employeesServices;
+
     @Test
-    public void testJDBCConnection(){
+    public void testJDBCConnection() {
         List<Employees> employees = employeesMapper.selectAll();
         System.out.println(employees.size());
         System.out.println(employees.get(0));
     }
 
     @Test
-    public void testTransaction(){
+    public void testTransaction() {
 
         Example example = new Example(Employees.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("employeeId",new BigDecimal(100));
+        criteria.andEqualTo("employeeId", new BigDecimal(100));
 
         List<Employees> employees = employeesMapper.selectByExample(example);
         Employees item = employees.get(0);
         System.out.println(JSON.toJSONString(item));
 
-        item.setLastName("zzzzzz");
+        item.setLastName("sssssssssss");
         employeesMapper.updateByPrimaryKeySelective(item);
 
         TransactionStatus status = transactionUtils.begin();
@@ -57,28 +61,37 @@ public class TestSpring {
         try {
             Example example1 = new Example(Employees.class);
             Example.Criteria criteria1 = example1.createCriteria();
-            criteria1.andEqualTo("employeeId",new BigDecimal(101));
+            criteria1.andEqualTo("employeeId", new BigDecimal(101));
             List<Employees> employees1 = employeesMapper.selectByExample(example1);
             Employees item1 = employees1.get(0);
             System.out.println(JSON.toJSONString(item1));
 
-            item1.setLastName("zzzzzz");
+            item1.setLastName("ssssssssssss");
             employeesMapper.updateByPrimaryKeySelective(item1);
+
+            int i = 0;
+            i = 3 / i;
 
             Example example2 = new Example(Employees.class);
             Example.Criteria criteria2 = example2.createCriteria();
-            criteria2.andEqualTo("employeeId",new BigDecimal(102));
+            criteria2.andEqualTo("employeeId", new BigDecimal(102));
             List<Employees> employees2 = employeesMapper.selectByExample(example2);
             Employees item2 = employees2.get(0);
             System.out.println(JSON.toJSONString(item2));
 
-            item2.setLastName("zzzzzz");
+            item2.setLastName("sssssssssssssss");
             employeesMapper.updateByPrimaryKeySelective(item2);
 
-        }catch (Exception e){
-            logger.error("",e);
+            transactionUtils.commit(status);
+
+        } catch (Exception e) {
+            logger.error("", e);
             transactionUtils.rollback(status);
         }
+    }
 
+    @Test
+    public void testTransaction1(){
+        employeesServices.testTransaction0();
     }
 }
