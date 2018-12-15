@@ -11,6 +11,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import javax.annotation.Resource;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 @Component
@@ -73,6 +74,7 @@ public class TransactionUtils {
         Method objMethod = classTarget.getMethod(methodName, par);
 
         ExtTransaction annotation = objMethod.getAnnotation(ExtTransaction.class);
+
         if (annotation == null) {
             return false;
         }

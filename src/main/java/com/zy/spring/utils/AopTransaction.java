@@ -30,7 +30,7 @@ public class AopTransaction {
         TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
     }
 
-    @Around("execution(* com.zy.spring.services.*.* (..))")
+    //@Around("execution(* com.zy.spring.services.*.* (..))")
     public void around(ProceedingJoinPoint proceedingJoinPoint) throws NoSuchMethodException {
         logger.info("begin transaction");
         TransactionStatus begin = transactionUtils.begin(proceedingJoinPoint);

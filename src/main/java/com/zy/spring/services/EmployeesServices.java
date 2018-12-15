@@ -26,7 +26,7 @@ public class EmployeesServices {
         Employees item1 = employees1.get(0);
         System.out.println(JSON.toJSONString(item1));
 
-        item1.setLastName("z");
+        item1.setLastName("3");
         employeesMapper.updateByPrimaryKeySelective(item1);
 
         int i = 0;
@@ -39,7 +39,7 @@ public class EmployeesServices {
         Employees item2 = employees2.get(0);
         System.out.println(JSON.toJSONString(item2));
 
-        item2.setLastName("z");
+        item2.setLastName("3");
         employeesMapper.updateByPrimaryKeySelective(item2);
     }
 }
