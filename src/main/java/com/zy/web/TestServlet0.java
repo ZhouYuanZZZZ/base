@@ -17,6 +17,7 @@ public class TestServlet0 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println(atomicInteger.incrementAndGet());
+        System.out.println(req.getParameter("xss"));
     }
 
     @Override

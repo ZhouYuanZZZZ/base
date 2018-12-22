@@ -3,6 +3,8 @@ package com.zy.spring.test;
 import com.alibaba.fastjson.JSON;
 import com.zy.spring.App;
 import com.zy.spring.entity.Employees;
+import com.zy.spring.ioc.IOCApplicationCpntext;
+import com.zy.spring.ioc.testbean.Bean0;
 import com.zy.spring.mapper.EmployeesMapper;
 import com.zy.spring.services.EmployeesServices;
 import com.zy.spring.utils.TransactionUtils;
@@ -94,4 +96,6 @@ public class TestSpring {
     public void testTransaction1(){
         employeesServices.testTransaction0();
     }
+    
+
 }
